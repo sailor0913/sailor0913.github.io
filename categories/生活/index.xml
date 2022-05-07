@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>生活 on Sailor&#39;s Blog</title>
-    <link>http://www.lovehxy.com/categories/%E7%94%9F%E6%B4%BB/</link>
+    <link>https://lovehxy.com/categories/%E7%94%9F%E6%B4%BB/</link>
     <description>Recent content in 生活 on Sailor&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 May 2022 17:30:08 +0800</lastBuildDate><atom:link href="http://www.lovehxy.com/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 17:30:08 +0800</lastBuildDate><atom:link href="https://lovehxy.com/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>第一篇博客</title>
-      <link>http://www.lovehxy.com/posts/life/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://lovehxy.com/posts/life/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 06 May 2022 17:30:08 +0800</pubDate>
       
-      <guid>http://www.lovehxy.com/posts/life/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://lovehxy.com/posts/life/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description>第一篇 1 Hello World 欢迎来到我的博客</description>
     </item>
     
