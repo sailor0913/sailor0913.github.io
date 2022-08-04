@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://lovehxy.com/sitemap.xml

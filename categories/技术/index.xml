@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>技术 on Sailor&#39;s Blog</title>
+    <link>https://lovehxy.com/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on Sailor&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 17 Jul 2022 23:49:35 +0800</lastBuildDate><atom:link href="https://lovehxy.com/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从0到1系列---微信机器人之TS Wechaty</title>
+      <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bts/</link>
+      <pubDate>Sun, 17 Jul 2022 23:49:35 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bts/</guid>
+      <description>前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 目标 使用TypeScript完成一个微信机器人，即给一个微信号</description>
+    </item>
+    
+    <item>
+      <title>从0到1系列---微信机器人之Python Wechaty</title>
+      <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bpython-wechaty/</link>
+      <pubDate>Wed, 06 Jul 2022 00:39:58 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bpython-wechaty/</guid>
+      <description>不管任何开发中，当你保证100%跟着教程做但是无法复现教程中的效果的时候，请重点考虑你的软件环境以及所有依赖的版本 前言 本系列教程力求简洁明了</description>
+    </item>
+    
+    <item>
+      <title>从0到1系列说明</title>
+      <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Tue, 05 Jul 2022 01:34:37 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97%E8%AF%B4%E6%98%8E/</guid>
+      <description>不知道你在学习编程的路上有没有遇到过下面这样的情况： 1、想写一个网站，查完资料后发现有人说Python可以做网站，就马上去买一本经典(豆瓣高</description>
+    </item>
+    
+  </channel>
+</rss>
