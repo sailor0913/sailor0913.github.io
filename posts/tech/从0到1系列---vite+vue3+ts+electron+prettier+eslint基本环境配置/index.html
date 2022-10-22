@@ -1,0 +1,248 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置 | Sailor's Blog</title><meta name=keywords content><meta name=description content="前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目"><meta name=author content="Sailor"><link rel=canonical href=https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite+vue3+ts+electron+prettier+eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/><link crossorigin=anonymous href=/assets/css/stylesheet.min.ec8da366ca2fb647537ccb7a8f6fa5b4e9cd3c7a0d3171dd2d3baad1e49c8bfc.css integrity="sha256-7I2jZsovtkdTfMt6j2+ltOnNPHoNMXHdLTuq0eSci/w=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://lovehxy.com/img/code.png><link rel=icon type=image/png sizes=16x16 href=https://lovehxy.com/img/code16.gif><link rel=icon type=image/png sizes=32x32 href=https://lovehxy.com/img/code32.gif><link rel=apple-touch-icon href=https://lovehxy.com/code.png><link rel=mask-icon href=https://lovehxy.com/code.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置"><meta property="og:description" content="前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目"><meta property="og:type" content="article"><meta property="og:url" content="https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite+vue3+ts+electron+prettier+eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-10-23T04:12:10+08:00"><meta property="article:modified_time" content="2022-10-23T04:12:10+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置"><meta name=twitter:description content="前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"文章","item":"https://lovehxy.com/posts/"},{"@type":"ListItem","position":3,"name":"💻技术","item":"https://lovehxy.com/posts/tech/"},{"@type":"ListItem","position":4,"name":"从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置","item":"https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite+vue3+ts+electron+prettier+eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置","name":"从0到1系列---Vite\u002bVue3\u002bTS\u002bElectron\u002bPrettier\u002bEslint基本环境配置","description":"前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目","keywords":[],"articleBody":"前言  本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目，遇到了一些问题，尤其是使用vscode配置eslint和prettier的时候。所以特地记录了下搭建流程，形成了自己的工作流，希望能帮助到大家  说明  所谓工作流,是指如果再次使用相同的技术栈开发时候，仅需按照记录的流程，不用思考即可搭建出完整的开发环境 所以下面的文章，不是教程，仅供对前端开发有一定经验的同学参考使用，如果你是新手，建议先学习一下相关基础知识，再来看这篇文章 环境配置主要难点在于eslint和prettier的配置，所以此文也适用于Vue3项目  目标  使用Vite+Vue3+TS+Electron搭建一个基本的桌面应用。其中用到了Prettier和Eslint来规范代码风格  仅有的一点废话  Vite：Vue官方出的前端脚手架工具，替代了Vue-cli，速度更快，更轻量 Vue3：Vue3.0版本，新特性很多，比如Composition API、Teleport、Suspense等等 TS：TypeScript，一种强类型的JavaScript语言。 Electron：一款开源的跨平台桌面应用开发工具，可以使用HTML、CSS和JavaScript来构建跨平台的桌面应用。 Prettier：一款代码格式化工具，主要可以自动格式化代码，比如将双引号自动转换为单引号等。 Eslint：一款代码检查工具，可以检查代码是否符合规范，比如代码中如果存在一个未使用的变量，就会报错等。特别注意的是Eslint本身也有一定的代码格式化功能，这就造成了可能会和Prettier冲突，所以额外配置（下面会讲到）  正式开始 vscode安装插件  vscode安装插件：Volar、ESLint、Prettier  Vite创建项目\u0026安装所有依赖 1 2 3 4 5  // 建立项目，依次输入项目名称、选择Vue和TypeScript npm create vite@latest  // 非常重要：安装下面所有依赖，我把项目中用到的都列出来了，如果你不需要某个依赖，可以自行删除 cnpm i -D electron prettier nodemon eslint vite-plugin-eslint @babel/core @babel/eslint-parser @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-prettier eslint-config-prettier eslint-plugin-vue   配置Prettier  根目录新建.prettierrc和.prettierignore两个文件，复制下面代码到对应文件中(两个文件前面有一个\".\"，不要漏掉) 关于prettier的具体配置，可以去官方playground自行配置，下面给出的是我自己的配置，可以参考使用 这个部分完成后，代码应该可以自动格式化了，调乱代码格式，保存后，代码会自动格式化  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28  // .prettierignore node_modules .vscode .idea dist /public .eslintrc.js  // .prettierrc {  \"arrowParens\": \"always\",  \"bracketSameLine\": false,  \"bracketSpacing\": false,  \"embeddedLanguageFormatting\": \"auto\",  \"htmlWhitespaceSensitivity\": \"css\",  \"insertPragma\": false,  \"jsxSingleQuote\": false,  \"printWidth\": 80,  \"proseWrap\": \"preserve\",  \"quoteProps\": \"as-needed\",  \"requirePragma\": false,  \"semi\": false,  \"singleQuote\": true,  \"tabWidth\": 2,  \"trailingComma\": \"es5\",  \"useTabs\": false,  \"vueIndentScriptAndStyle\": false }   修改vite.config.ts  修改根目录下的vite.config.ts文件，添加如下代码  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  import { defineConfig } from 'vite'; import vue from '@vitejs/plugin-vue'; import eslintPlugin from 'vite-plugin-eslint';  // https://vitejs.dev/config/ export default defineConfig({ \tplugins: [ \tvue(), \teslintPlugin({ \tinclude: ['src/**/*.ts', 'src/**/*.vue', 'src/*.ts', 'src/*.vue'], \t}), \t], \tresolve: { \t// 配置路径别名 \talias: { \t'@': '/src', \t}, \t}, });   配置Eslint  根目录建立.eslintrc.cjs和.eslintignore(两个文件前面有一个\".\"，不要漏掉) 复制下面内容到.eslintrc.cjs和.eslintignore中 此部分完成后，重启vscode，代码应该可以自动检查了，比如未使用的变量，会报错  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32  // .eslintignore node_modules .vscode .idea dist /public .eslintrc.js  // .eslintrc.cjs module.exports = {  env: {  browser: true,  es2021: true,  node: true,  },  parser: 'vue-eslint-parser',  extends: [  'eslint:recommended',  'plugin:vue/vue3-essential',  'plugin:prettier/recommended',  'plugin:@typescript-eslint/recommended',  ],  overrides: [],  parserOptions: {  ecmaVersion: 'latest',  parser: '@typescript-eslint/parser',  },  plugins: ['vue', '@typescript-eslint'],  rules: { \t'@typescript-eslint/no-var-requires': 'off', // 关闭ts中使用const导入模块的时候错误提示 \t}, }   配置electron  修改根目录下的package.json文件，添加如下代码 nodemon是用来监听文件变化，自动重启electron的。如果不需要scripts中写成\"electron .“即可  1 2 3 4 5  // package.json \"main\": \"main.ts\", \"scripts\": {  \"start\": \"nodemon --exec electron . --watch ./ --ext .js,.ts,.vue,.html,.css,.json\"  },    根目录下新建main.ts(此为electron的入口文件)  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  const { app, BrowserWindow} = require('electron'); const path = require('path')  const createWindow = () = {  const win = new BrowserWindow({  width: 800,  height: 600, \twebPreferences: { \t// 定义预加载的js  preload: path.join(__dirname, './preload/index.ts')  }  });   win.loadURL('http://localhost:5173/');  }  app.whenReady().then(() = {  createWindow()  app.on('activate', () = {  if (BrowserWindow.getAllWindows().length === 0) {  createWindow()  }  }) });  app.on('window-all-closed', () = {  if (process.platform !== 'darwin') {  app.quit()  } })   运行测试 1 2  npm run dev // 启动vue.因为electron从localhost:5173读取页面，所以要先启动vue npm start // 启动electron    如果没有意外，应该可以看到electron启动了，且页面显示了vue的内容，从0到1完成！  ","wordCount":"1875","inLanguage":"en","datePublished":"2022-10-23T04:12:10+08:00","dateModified":"2022-10-23T04:12:10+08:00","author":{"@type":"Person","name":"Sailor"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite+vue3+ts+electron+prettier+eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"},"publisher":{"@type":"Organization","name":"Sailor's Blog","logo":{"@type":"ImageObject","url":"https://lovehxy.com/img/code.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://lovehxy.com accesskey=h title="Sailor's Blog (Alt + H)">Sailor's Blog</a>
+<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu><li><a href=https://lovehxy.com/search title="🔍搜索 (Alt + /)" accesskey=/><span>🔍搜索</span></a></li><li><a href=https://lovehxy.com/ title=🏠主页><span>🏠主页</span></a></li><li><a href=https://lovehxy.com/posts title=📚文章><span>📚文章</span></a></li><li><a href=https://lovehxy.com/archives/ title=⏱时间轴><span>⏱时间轴</span></a></li><li><a href=https://lovehxy.com/tags/ title=🔖标签><span>🔖标签</span></a></li><li><a href=https://lovehxy.com/about title=🙋🏻‍♂️关于><span>🙋🏻‍♂️关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://lovehxy.com>Home</a>&nbsp;»&nbsp;<a href=https://lovehxy.com/posts/>文章</a>&nbsp;»&nbsp;<a href=https://lovehxy.com/posts/tech/>💻技术</a></div><h1 class=post-title>从0到1系列---Vite+Vue3+TS+Electron+Prettier+Eslint基本环境配置</h1><div class=post-meta>创建:&nbsp;<span title="2022-10-23 04:12:10 +0800 +0800">2022-10-23</span>&nbsp;|&nbsp;更新:&nbsp;2022-10-23&nbsp;|&nbsp;字数:&nbsp;1875字&nbsp;|&nbsp;时长: 4分钟&nbsp;|&nbsp;Sailor</div></header><div class=post-content><h3 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h3><ul><li>本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。</li><li>近日使用Vite+Vue3+TS+Electron写一个小项目，遇到了一些问题，尤其是使用vscode配置eslint和prettier的时候。所以特地记录了下搭建流程，形成了自己的<strong>工作流</strong>，希望能帮助到大家</li></ul><h3 id=说明>说明<a hidden class=anchor aria-hidden=true href=#说明>#</a></h3><ul><li>所谓<strong>工作流</strong>,是指如果再次使用相同的技术栈开发时候，仅需按照记录的流程，不用思考即可搭建出完整的开发环境</li><li>所以下面的文章，不是教程，仅供对前端开发有一定经验的同学参考使用，如果你是新手，建议先学习一下相关基础知识，再来看这篇文章</li><li>环境配置主要难点在于<strong>eslint</strong>和<strong>prettier</strong>的配置，所以此文也适用于Vue3项目</li></ul><h3 id=目标>目标<a hidden class=anchor aria-hidden=true href=#目标>#</a></h3><ul><li>使用Vite+Vue3+TS+Electron搭建一个基本的桌面应用。其中用到了Prettier和Eslint来规范代码风格</li></ul><h3 id=仅有的一点废话>仅有的一点废话<a hidden class=anchor aria-hidden=true href=#仅有的一点废话>#</a></h3><ul><li>Vite：Vue官方出的前端脚手架工具，替代了Vue-cli，速度更快，更轻量</li><li>Vue3：Vue3.0版本，新特性很多，比如Composition API、Teleport、Suspense等等</li><li>TS：TypeScript，一种强类型的JavaScript语言。</li><li>Electron：一款开源的跨平台桌面应用开发工具，可以使用HTML、CSS和JavaScript来构建跨平台的桌面应用。</li><li>Prettier：一款代码格式化工具，主要可以自动格式化代码，比如将双引号自动转换为单引号等。</li><li>Eslint：一款代码检查工具，可以检查代码是否符合规范，比如代码中如果存在一个未使用的变量，就会报错等。特别注意的是Eslint本身也有一定的代码格式化功能，这就造成了可能会和Prettier冲突，所以额外配置（下面会讲到）</li></ul><h3 id=正式开始>正式开始<a hidden class=anchor aria-hidden=true href=#正式开始>#</a></h3><h4 id=vscode安装插件>vscode安装插件<a hidden class=anchor aria-hidden=true href=#vscode安装插件>#</a></h4><ul><li>vscode安装插件：Volar、ESLint、Prettier</li></ul><h4 id=vite创建项目安装所有依赖>Vite创建项目&安装所有依赖<a hidden class=anchor aria-hidden=true href=#vite创建项目安装所有依赖>#</a></h4><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#007f7f>// 建立项目，依次输入项目名称、选择Vue和TypeScript
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>npm create vite<span style=color:red>@</span>latest
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#007f7f>// 非常重要：安装下面所有依赖，我把项目中用到的都列出来了，如果你不需要某个依赖，可以自行删除
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>cnpm i -D electron prettier nodemon eslint vite-plugin-eslint <span style=color:red>@</span>babel/core <span style=color:red>@</span>babel/eslint-parser <span style=color:red>@</span>typescript-eslint/parser <span style=color:red>@</span>typescript-eslint/eslint-plugin eslint-plugin-prettier eslint-config-prettier eslint-plugin-vue  
+</span></span></code></pre></td></tr></table></div></div><h4 id=配置prettier>配置Prettier<a hidden class=anchor aria-hidden=true href=#配置prettier>#</a></h4><ul><li>根目录新建.prettierrc和.prettierignore两个文件，复制下面代码到对应文件中(两个文件前面有一个"."，不要漏掉)</li><li>关于prettier的具体配置，可以去<a href=https://prettier.io/playground>官方playground</a>自行配置，下面给出的是我自己的配置，可以参考使用</li><li>这个部分完成后，代码应该可以自动格式化了，调乱代码格式，保存后，代码会自动格式化</li></ul><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">28
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#007f7f>// .prettierignore
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>node_modules
+</span></span><span style=display:flex><span>.vscode
+</span></span><span style=display:flex><span>.idea
+</span></span><span style=display:flex><span>dist
+</span></span><span style=display:flex><span><span style=color:red>/public</span>
+</span></span><span style=display:flex><span>.eslintrc.js
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#007f7f>// .prettierrc
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>{
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;arrowParens&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;always&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;bracketSameLine&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;bracketSpacing&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;embeddedLanguageFormatting&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;auto&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;htmlWhitespaceSensitivity&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;css&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;insertPragma&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;jsxSingleQuote&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;printWidth&#34;</span>: <span style=color:#ff0;font-weight:700>80</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;proseWrap&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;preserve&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;quoteProps&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;as-needed&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;requirePragma&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;semi&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;singleQuote&#34;</span>: <span style=color:#fff;font-weight:700>true</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;tabWidth&#34;</span>: <span style=color:#ff0;font-weight:700>2</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;trailingComma&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;es5&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;useTabs&#34;</span>: <span style=color:#fff;font-weight:700>false</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;vueIndentScriptAndStyle&#34;</span>: <span style=color:#fff;font-weight:700>false</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h4 id=修改viteconfigts>修改vite.config.ts<a hidden class=anchor aria-hidden=true href=#修改viteconfigts>#</a></h4><ul><li>修改根目录下的vite.config.ts文件，添加如下代码</li></ul><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#fff;font-weight:700>import</span> { defineConfig } from <span style=color:#0ff;font-weight:700>&#39;vite&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fff;font-weight:700>import</span> vue from <span style=color:#0ff;font-weight:700>&#39;@vitejs/plugin-vue&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fff;font-weight:700>import</span> eslintPlugin from <span style=color:#0ff;font-weight:700>&#39;vite-plugin-eslint&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#007f7f>// https://vitejs.dev/config/
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span><span style=color:#fff;font-weight:700>export</span> <span style=color:#fff;font-weight:700>default</span> defineConfig({
+</span></span><span style=display:flex><span>	plugins: [
+</span></span><span style=display:flex><span>		vue(),
+</span></span><span style=display:flex><span>		eslintPlugin({
+</span></span><span style=display:flex><span>			include: [<span style=color:#0ff;font-weight:700>&#39;src/**/*.ts&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;src/**/*.vue&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;src/*.ts&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;src/*.vue&#39;</span>],
+</span></span><span style=display:flex><span>		}),
+</span></span><span style=display:flex><span>	],
+</span></span><span style=display:flex><span>	resolve: {
+</span></span><span style=display:flex><span>		<span style=color:#007f7f>// 配置路径别名
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>		alias: {
+</span></span><span style=display:flex><span>			<span style=color:#0ff;font-weight:700>&#39;@&#39;</span>: <span style=color:#0ff;font-weight:700>&#39;/src&#39;</span>,
+</span></span><span style=display:flex><span>		},
+</span></span><span style=display:flex><span>	},
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></td></tr></table></div></div><h4 id=配置eslint>配置Eslint<a hidden class=anchor aria-hidden=true href=#配置eslint>#</a></h4><ul><li>根目录建立.eslintrc.cjs和.eslintignore(两个文件前面有一个"."，不要漏掉)</li><li>复制下面内容到.eslintrc.cjs和.eslintignore中</li><li>此部分完成后，<strong>重启vscode</strong>，代码应该可以自动检查了，比如未使用的变量，会报错</li></ul><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">30
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">31
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">32
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#007f7f>// .eslintignore
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>node_modules
+</span></span><span style=display:flex><span>.vscode
+</span></span><span style=display:flex><span>.idea
+</span></span><span style=display:flex><span>dist
+</span></span><span style=display:flex><span><span style=color:red>/public</span>
+</span></span><span style=display:flex><span>.eslintrc.js
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#007f7f>// .eslintrc.cjs
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>module.exports = {
+</span></span><span style=display:flex><span>  env: {
+</span></span><span style=display:flex><span>    browser: <span style=color:#fff;font-weight:700>true</span>,
+</span></span><span style=display:flex><span>    es2021: <span style=color:#fff;font-weight:700>true</span>,
+</span></span><span style=display:flex><span>    node: <span style=color:#fff;font-weight:700>true</span>,
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  parser: <span style=color:#0ff;font-weight:700>&#39;vue-eslint-parser&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#fff;font-weight:700>extends</span>: [
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#39;eslint:recommended&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#39;plugin:vue/vue3-essential&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#39;plugin:prettier/recommended&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#39;plugin:@typescript-eslint/recommended&#39;</span>,
+</span></span><span style=display:flex><span>  ],
+</span></span><span style=display:flex><span>  overrides: [],
+</span></span><span style=display:flex><span>  parserOptions: {
+</span></span><span style=display:flex><span>    ecmaVersion: <span style=color:#0ff;font-weight:700>&#39;latest&#39;</span>,
+</span></span><span style=display:flex><span>    parser: <span style=color:#0ff;font-weight:700>&#39;@typescript-eslint/parser&#39;</span>,
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  plugins: [<span style=color:#0ff;font-weight:700>&#39;vue&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;@typescript-eslint&#39;</span>],
+</span></span><span style=display:flex><span>  rules: {
+</span></span><span style=display:flex><span>		<span style=color:#0ff;font-weight:700>&#39;@typescript-eslint/no-var-requires&#39;</span>: <span style=color:#0ff;font-weight:700>&#39;off&#39;</span>,  <span style=color:#007f7f>// 关闭ts中使用const导入模块的时候错误提示
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>	},
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h4 id=配置electron>配置electron<a hidden class=anchor aria-hidden=true href=#配置electron>#</a></h4><ul><li>修改根目录下的package.json文件，添加如下代码</li><li>nodemon是用来监听文件变化，自动重启electron的。如果不需要scripts中写成"electron .&ldquo;即可</li></ul><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#007f7f>// package.json
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span><span style=color:#0ff;font-weight:700>&#34;main&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;main.ts&#34;</span>,
+</span></span><span style=display:flex><span><span style=color:#0ff;font-weight:700>&#34;scripts&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#0ff;font-weight:700>&#34;start&#34;</span>: <span style=color:#0ff;font-weight:700>&#34;nodemon --exec electron . --watch ./ --ext .js,.ts,.vue,.html,.css,.json&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span></code></pre></td></tr></table></div></div><ul><li>根目录下新建main.ts(此为electron的入口文件)</li></ul><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">22
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">23
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">24
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">25
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">26
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">27
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">28
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">29
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">30
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#fff;font-weight:700>const</span> { app, BrowserWindow} = require(<span style=color:#0ff;font-weight:700>&#39;electron&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#fff;font-weight:700>const</span> path = require(<span style=color:#0ff;font-weight:700>&#39;path&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#fff;font-weight:700>const</span> createWindow = () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#fff;font-weight:700>const</span> win = <span style=color:#fff;font-weight:700>new</span> BrowserWindow({
+</span></span><span style=display:flex><span>        width: <span style=color:#ff0;font-weight:700>800</span>,
+</span></span><span style=display:flex><span>        height: <span style=color:#ff0;font-weight:700>600</span>,
+</span></span><span style=display:flex><span>				webPreferences: {
+</span></span><span style=display:flex><span>						<span style=color:#007f7f>// 定义预加载的js
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>            preload: path.join(__dirname, <span style=color:#0ff;font-weight:700>&#39;./preload/index.ts&#39;</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    win.loadURL(<span style=color:#0ff;font-weight:700>&#39;http://localhost:5173/&#39;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>app.whenReady().then(() =&gt; {
+</span></span><span style=display:flex><span>    createWindow()
+</span></span><span style=display:flex><span>    app.on(<span style=color:#0ff;font-weight:700>&#39;activate&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#fff;font-weight:700>if</span> (BrowserWindow.getAllWindows().length === <span style=color:#ff0;font-weight:700>0</span>) {
+</span></span><span style=display:flex><span>            createWindow()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>app.on(<span style=color:#0ff;font-weight:700>&#39;window-all-closed&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#fff;font-weight:700>if</span> (process.platform !== <span style=color:#0ff;font-weight:700>&#39;darwin&#39;</span>) {
+</span></span><span style=display:flex><span>        app.quit()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>})
+</span></span></code></pre></td></tr></table></div></div><h4 id=运行测试>运行测试<a hidden class=anchor aria-hidden=true href=#运行测试>#</a></h4><div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#727272">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>npm run dev <span style=color:#007f7f>// 启动vue.因为electron从localhost:5173读取页面，所以要先启动vue
+</span></span></span><span style=display:flex><span><span style=color:#007f7f></span>npm start <span style=color:#007f7f>// 启动electron
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>如果没有意外，应该可以看到electron启动了，且页面显示了vue的内容，从0到1完成！</li></ul></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=next href=https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97--%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bntchat/><span class=title>Next Page »</span><br><span>从0到1系列---微信机器人之ntchat</span></a></nav></footer><script src=https://giscus.app/client.js data-repo=sailor0913/sailor0913.github.io data-repo-id=R_kgDOHSyQ2A data-category=Announcements data-category-id=DIC_kwDOHSyQ2M4CQqxL data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=zh-CN crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2022 <a href=https://lovehxy.com>Sailor's Blog</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span><div><a href=https://beian.miit.gov.cn rel="noopener noreferrer" target=_blank>豫ICP备2022023506号-1</a></div></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="copy";function s(){e.innerText="copied!",setTimeout(()=>{e.innerText="copy"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script></body></html>

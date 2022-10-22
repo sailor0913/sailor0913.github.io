@@ -6,7 +6,16 @@
     <description>Recent content on Sailor&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 04 Sep 2022 03:18:51 +0800</lastBuildDate><atom:link href="https://lovehxy.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 04:12:10 +0800</lastBuildDate><atom:link href="https://lovehxy.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从0到1系列---Vite&#43;Vue3&#43;TS&#43;Electron&#43;Prettier&#43;Eslint基本环境配置</title>
+      <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite&#43;vue3&#43;ts&#43;electron&#43;prettier&#43;eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 23 Oct 2022 04:12:10 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97---vite&#43;vue3&#43;ts&#43;electron&#43;prettier&#43;eslint%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 本系列教程力求简洁明了，务必保证你的环境以及所有依赖的版本跟教程保持一致。 近日使用Vite+Vue3+TS+Electron写一个小项目</description>
+    </item>
+    
     <item>
       <title>从0到1系列---微信机器人之ntchat</title>
       <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97--%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bntchat/</link>
