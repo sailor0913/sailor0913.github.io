@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>爬虫 on Sailor&#39;s Blog</title>
+    <link>https://lovehxy.com/tags/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on Sailor&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 16 Feb 2023 03:16:01 +0800</lastBuildDate><atom:link href="https://lovehxy.com/tags/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyqt5&#43;playwright实战记录和踩坑分享</title>
+      <link>https://lovehxy.com/posts/tech/pyqt5&#43;playwright%E5%AE%9E%E6%88%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%B8%A9%E5%9D%91%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Thu, 16 Feb 2023 03:16:01 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/pyqt5&#43;playwright%E5%AE%9E%E6%88%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%B8%A9%E5%9D%91%E5%88%86%E4%BA%AB/</guid>
+      <description>小玩意效果 前情提要 几年前一朋友对我说他工作中有时候需要把工作网站上的很多新闻内容转换为pdf，他的方法就是打开每一篇新闻&amp;mdash;ctr</description>
+    </item>
+    
+  </channel>
+</rss>

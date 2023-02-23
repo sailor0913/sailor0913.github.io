@@ -6,7 +6,16 @@
     <description>Recent content in 技术 on Sailor&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 04 Sep 2022 03:18:51 +0800</lastBuildDate><atom:link href="https://lovehxy.com/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2023 03:16:01 +0800</lastBuildDate><atom:link href="https://lovehxy.com/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyqt5&#43;playwright实战记录和踩坑分享</title>
+      <link>https://lovehxy.com/posts/tech/pyqt5&#43;playwright%E5%AE%9E%E6%88%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%B8%A9%E5%9D%91%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Thu, 16 Feb 2023 03:16:01 +0800</pubDate>
+      
+      <guid>https://lovehxy.com/posts/tech/pyqt5&#43;playwright%E5%AE%9E%E6%88%98%E8%AE%B0%E5%BD%95%E5%92%8C%E8%B8%A9%E5%9D%91%E5%88%86%E4%BA%AB/</guid>
+      <description>小玩意效果 前情提要 几年前一朋友对我说他工作中有时候需要把工作网站上的很多新闻内容转换为pdf，他的方法就是打开每一篇新闻&amp;mdash;ctr</description>
+    </item>
+    
     <item>
       <title>从0到1系列---微信机器人之ntchat</title>
       <link>https://lovehxy.com/posts/tech/%E4%BB%8E0%E5%88%B01%E7%B3%BB%E5%88%97--%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B9%8Bntchat/</link>
