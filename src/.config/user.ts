@@ -58,7 +58,7 @@ export const configUser: Partial<Config> = {
 			strict: "0",
 			reactionsEnabled: "1",
 			emitMetadata: "0",
-			inputPosition: "bottom",
+			inputPosition: "top",
 			theme: "preferred_color_scheme",
 			lang: "zh-CN",
 			loading: "lazy",
