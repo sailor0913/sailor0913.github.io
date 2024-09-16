@@ -3,12 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import LayoutDefault from "../layouts/LayoutDefault.astro";
 
 const personalInfo = {
-	name: "张明",
-	title: "全栈开发工程师",
-	bio: "热爱技术，专注于创造有影响力的数字体验。5年web开发经验，擅长前端和后端技术。",
+	name: "sailor0913",
+	title: "菜、爱玩、爱折腾、老年人",
+	bio: "热爱生活、热爱折腾",
 	quote: "代码如诗，编程如画。",
-	skills: ["JavaScript", "React", "Node.js", "Python", "Docker", "AWS"],
-	interests: ["人工智能", "开源项目", "摄影", "徒步旅行"],
+	skills: ["JavaScript", "Node.js", "Python", "Vue"],
+	interests: ["编程", "读书", "运动"],
 	experience: [
 		{
 			company: "科技创新有限公司",
@@ -27,7 +27,7 @@ const personalInfo = {
 };
 ---
 
-<div class="flex">
+<div class="flex justify-center max-w-6xl mx-auto">
 	<!-- <div class="w-1/4">
 		<Layout title={`关于 ${personalInfo.name} - 个人简介`}>
 
@@ -44,7 +44,7 @@ const personalInfo = {
 	
 	<div class="w-3/4">
 		<LayoutDefault>
-			<main class="container mx-auto px-4 py-8 max-w-4xl">
+			<main class="container mx-auto px-4 py-8">
 				<section class="text-center mb-12">
 					<img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg" src="https://via.placeholder.com/160" alt={personalInfo.name}>
 					<h1 class="text-4xl font-bold mb-2">{personalInfo.name}</h1>
