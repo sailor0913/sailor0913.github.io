@@ -48,5 +48,20 @@ export const configUser: Partial<Config> = {
 		},
 	],
 	category_map: [{ name: "胡适", path: "hu-shi" }],
-	comments: {},
+	comments: {
+		giscus: {
+			repo: "sailor0913/sailor0913.github.io",
+			repoId: "R_kgDOMEaWdA",
+			category: "Announcements",
+			categoryId: "DIC_kwDOMEaWdM4Cifxa",
+			mapping: "pathname",
+			strict: "0",
+			reactionsEnabled: "1",
+			emitMetadata: "0",
+			inputPosition: "bottom",
+			theme: "preferred_color_scheme",
+			lang: "zh-CN",
+			loading: "lazy",
+		},
+	},
 };
