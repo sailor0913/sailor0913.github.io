@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@iconify-json/mdi": "^1.1.64",
-		"@types/markdown-it": "^14.1.1",
+		"@types/markdown-it": "^14.1.2",
 		"@types/node": "^20.12.7",
 		"@types/sanitize-html": "^2.9.5",
 		"@unocss/reset": "^0.59.0",
