@@ -1,3 +1,4 @@
+import markdoc from "@astrojs/markdoc";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
@@ -11,7 +12,7 @@ export default defineConfig({
 	prefetch: true,
 	markdown: {
 		shikiConfig: {
-			theme: "one-dark-pro",
+			theme: "solarized-light",
 			langs: [],
 			wrap: true,
 		},
@@ -23,5 +24,6 @@ export default defineConfig({
 		robotsTxt(),
 		sitemap(),
 		mdx(),
+		markdoc(),
 	],
 });
