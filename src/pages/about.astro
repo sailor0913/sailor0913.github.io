@@ -1,7 +1,83 @@
 ---
 import LayoutDefault from "~/layouts/LayoutDefault.astro";
+import Layout from "../layouts/Layout.astro";
+const personalInfo = {
+	name: "张明",
+	title: "全栈开发工程师",
+	bio: "热爱技术，专注于创造有影响力的数字体验。5年web开发经验，擅长前端和后端技术。",
+	quote: "代码如诗，编程如画。",
+	skills: ["JavaScript", "React", "Node.js", "Python", "Docker", "AWS"],
+	interests: ["人工智能", "开源项目", "摄影", "徒步旅行"],
+	experience: [
+		{
+			company: "科技创新有限公司",
+			role: "高级开发工程师",
+			period: "2020 - 至今",
+			description:
+				"负责公司核心产品的架构设计和开发，带领团队完成多个重要项目。",
+		},
+		{
+			company: "互联网科技有限公司",
+			role: "前端开发工程师",
+			period: "2018 - 2020",
+			description: "参与开发大型电商平台，优化用户界面和性能。",
+		},
+	],
+};
 ---
 
 <LayoutDefault>
   
 </LayoutDefault>
+
+
+<Layout title={`关于 ${personalInfo.name} - 个人简介`}>
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <section class="text-center mb-12">
+      <img class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg" src="https://via.placeholder.com/160" alt={personalInfo.name}>
+      <h1 class="text-4xl font-bold mb-2">{personalInfo.name}</h1>
+      <p class="text-xl text-gray-600">{personalInfo.title}</p>
+    </section>
+
+    <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold mb-4">关于我</h2>
+      <p class="text-gray-700 mb-4">{personalInfo.bio}</p>
+      <blockquote class="border-l-4 border-blue-500 pl-4 italic text-gray-600">
+        "{personalInfo.quote}"
+      </blockquote>
+    </section>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold mb-4">技能</h2>
+        <div class="flex flex-wrap gap-2">
+          {personalInfo.skills.map(skill => (
+            <span class="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold">{skill}</span>
+          ))}
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold mb-4">兴趣爱好</h2>
+        <ul class="list-disc list-inside text-gray-700">
+          {personalInfo.interests.map(interest => (
+            <li>{interest}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold mb-4">工作经历</h2>
+      <div class="space-y-6">
+        {personalInfo.experience.map(job => (
+          <div class="border-l-4 border-gray-200 pl-4">
+            <h3 class="text-xl font-semibold">{job.role}</h3>
+            <p class="text-gray-600">{job.company} | {job.period}</p>
+            <p class="text-gray-700 mt-2">{job.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
