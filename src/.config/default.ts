@@ -1,32 +1,32 @@
 import type { Config } from "~/types";
 
 export const configDefault: Config = {
-	title: "热爱生活",
-	author: "sailor0913",
-	desc: "热爱生活，享受生活",
-	website: "https://lovehxy.com",
-	locale: "zh-cn",
+	title: "活版印字",
+	author: "Typography",
+	desc: "Rediscory the beauty of typography",
+	website: "https://astro-theme-typography.vercel.app/",
+	locale: "en-us",
 	themeStyle: "light",
 	socials: [
 		{
 			name: "github",
-			href: "https://github.com/sailor0913",
+			href: "https://github.com/moeyua/astro-theme-typography",
 		},
-		// {
-		// 	name: "rss",
-		// 	href: "/atom.xml",
-		// },
+		{
+			name: "rss",
+			href: "/atom.xml",
+		},
 		{
 			name: "twitter",
-			href: "https://x.com/juventusryp",
+			href: "https://github.com/moeyua/astro-theme-typography",
 		},
 		{
-			name: "alpha-b-box",
-			href: "https://space.bilibili.com/479305033",
+			name: "mastodon",
+			href: "https://github.com/moeyua/astro-theme-typography",
 		},
 	],
 	header: {
-		twitter: "@juventusryp",
+		twitter: "@moeyua13",
 	},
 	navs: [
 		{
