@@ -31,7 +31,7 @@
 		"@biomejs/biome": "1.8.3",
 		"@iconify-json/mdi": "^1.1.64",
 		"@types/markdown-it": "^14.1.1",
-		"@types/node": "^20.12.7",
+		"@types/node": "^22.7.4",
 		"@types/sanitize-html": "^2.9.5",
 		"@unocss/reset": "^0.59.0",
 		"@unocss/transformer-directives": "^0.60.4",
